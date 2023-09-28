@@ -1,0 +1,22 @@
+﻿@model List<HotelProject.WebUI.Models.AppRole.RoleAssignViewModel>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<form method="post">
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="form-check">
+            <input type="hidden" asp-for="@Model[i].RoleId"/>
+            <input type="hidden" asp-for="@Model[i].RoleName"/>
+            <input type="checkbox" class="form-check-input" asp-for="@Model[i].RoleExist"/>
+            <label class="form-check" for="@Model[i].RoleExist">@Model[i].RoleName</label>
+        </div>
+        
+    }
+    <br />
+
+    <button class="btn btn-success">Bu Kullanıcı İçin Rolleri Güncelle</button>
+</form>
